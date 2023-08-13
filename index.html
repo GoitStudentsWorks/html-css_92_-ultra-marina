@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKWSURBVHgBxZUxb1MxEIB9z34NtLRFMCEBzcQI6tyhQahiJSCQ2OAXsLEiBiQ2xM7CWtRQIqSgRu1Lg9qoE0IdGVBmlpahTdLnO+7OL1Ha0L4CA65q+53Pn+/Odw6YnFZLkqIdi7bj8akrN2dnd/L0ozwF51yRyJxD2ps2p2i5QLJEAIZkvtRsXvpnIHgAthBkPobpw4/rjaXFen36r4GjynS34OzW+yQ5f7zOCU1cHtkEcI3/16rV6vgfAVc3NmbAs8/i8P6Rgwhn/cTEi1MDV1vNR2DxdqqbuTvbX5GQGjmDIwtP3tXrpVxgrZUUeXiNiOCME+TwssLkorgDa+2zE4ECKxib8KbJKIooxBBMh11GE0gqUDKvI80vrqzM/xY4gAHMiL5YKGkjFp4RZT4AMihINhFCgEflEWByGHakQRhQAfwFAs2sVOa9Q8DG1maZffvC06Io9pWlpdrT4FIUkFVOgAmfLr+tVC6KzAV1f50RyxEEg5FQx9i6b2g86aekTVxYOuj1KrrY7RoOyAUsFKYYcONqubw75MvxrfY5KbElSQxx8dbcXDtPP7+WIf7Bw6efvd6u+R8N1lrr3/XWhpIXsqhrzvHEk1wwcWxJ5yLDbE3CK3PEIHeE+BwiqxBEH4D8rXi+Dd3AXbakTaUU6geDIOjz6MC67fTATMp9WyiQ1wfQEvKjIEngJXEkdZ1YYMn7LlgeU5BDNOtNyodxCZI33bZj9APr6GkwLTVWLfQUAecju+kMKyKZ8Me1zdWN8i6QVo66aZ14gV87nU4pilPzki3QH5/wTplBFdBQUFU29DRKUkPIOll5s79nS4/L5R2VJJvNO2zPK1Yr9jeES8kCPnQpGllUeZtlHzzh8v2FhUZ/3y8RMF9aJ9DCBQAAAABJRU5ErkJggg==" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yacht Adventures</title>
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,500&display=swap"
+      rel="stylesheet"
+    />
+    <!--Styles-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    />
+    
+    <script type="module" crossorigin src="/html-css_92_-ultra-marina/assets/index-8de4d081.js"></script>
+    <link rel="stylesheet" href="/html-css_92_-ultra-marina/assets/index-b58c6a11.css">
+  </head>
+  <!--Content-->
+  <body>
+    <header class="header">
+  <div class="container">
+    <nav class="header-nav">
+      <!-- логотип -->
+        <a class="header-logo-link link" href="./index.html">
+          <img
+            class="header-logo-img"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKOSURBVHgBpVRLchMxEO3WpEhSRZWdE2RyAsyWBbYXLGBDcgCwcwLMBbA5QbiBd2xdLKgUmCDsgMMxfAOGnSuR1HS3xmMnDvEnqrGl0UivX79+EsAG7bO1lVXWGdigEUKjZ2152bqNwIFgL0no0bJla4OfDm0zyCBgZ9natcC//Bq0DZp9g6IMVJdJszJ4/9zWWI6OCwEDAZJMhtC6N7i1NsXEdIFINxSbEKv3BvfbpsNI+8UEy8JN/mu9fr+2MfjZz2HTIDYiKGonsoA+CB7xcCPwKAe8k7EyvdY0AkuPje5/Cns3850t0fmAGVIegHcYyt2iARGw9NC5ylrg9uK8zdSqKsU8a3GL8o7cSeNge2Vwe2FT3tQWpogYGQPoOMQUeIhFRF5V6/YWpbkVnCCxED2BCizJizR5EGUt34CKHbu7rrkU3I6GJ9ylOdUCLYJdbxJQgktMMvDyTvBvo+Eh59qa2wwLG7igqGnFWIgRggLUPn79Xr0VXGzHLjhBnBGc2k9kn84FLmgsZvRhXgDSujt3NA++VYx2IOXEPyGYEpctjd4DKVKZC5aqRAg5bB6YKA+gndw4r3k8y/xsNGgJiKEw1pkExuA07JgDZvXH9Wy6+JRdNJlA9oBrchlChTUq8UVW9ld+j2+dkidKrybu+PjouWIhy1EO20mX07p5jAkiKxn9cT78ZRtmIUDGIJn3IfMAY5WJzNg5nkPKhJhzjsEnWVExcYkUc87XND088uZJ9Cbw/OPnRj+bDxQvtXDpD4qC1p88fcvz76cHJhrBUCywHpjcHfJOeQ8Ui43FpRZNgB2RZsFr9vfgDX//oB7mlNUqHDVniSyJZEBe2GkmkpXOKXMe/nj14lldsP4Bep+CB72FPmUAAAAASUVORK5CYII="
+            alt="yachts"
+          />YACHT ADVENTURES
+        </a>
+      <!-- мобільне меню -->
+      <button
+        class="menu-toggle js-open-menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg class="menu-toggle-icon" width="24" height="24">
+          <use href="/html-css_92_-ultra-marina/assets/icons-93572e49.svg#header-burger"></use>
+        </svg>
+      </button>
+      <!-- навігація -->
+      <ul class="header-list list">
+        <li class="header-item">
+          <a class="header-link link" href="#about">ABOUT</a>
+        </li>
+        <li class="header-item">
+          <a class="header-link link" href="#yachts">YACHTS</a>
+        </li>
+        <li class="header-item">
+          <a class="header-link link" href="#reviews">REVIEWS</a>
+        </li>
+      </ul>
+    </nav>
+    </div>
+</header>
+
+<!-- мобільне меню -->
+
+<div class="menu-container js-menu-container" id="mobile-menu">
+  <div class="header-logotype-menu">
+    <a class="header-logo-link link" href="./index.html">
+      <img
+        class="header-logo-img"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKOSURBVHgBpVRLchMxEO3WpEhSRZWdE2RyAsyWBbYXLGBDcgCwcwLMBbA5QbiBd2xdLKgUmCDsgMMxfAOGnSuR1HS3xmMnDvEnqrGl0UivX79+EsAG7bO1lVXWGdigEUKjZ2152bqNwIFgL0no0bJla4OfDm0zyCBgZ9natcC//Bq0DZp9g6IMVJdJszJ4/9zWWI6OCwEDAZJMhtC6N7i1NsXEdIFINxSbEKv3BvfbpsNI+8UEy8JN/mu9fr+2MfjZz2HTIDYiKGonsoA+CB7xcCPwKAe8k7EyvdY0AkuPje5/Cns3850t0fmAGVIegHcYyt2iARGw9NC5ylrg9uK8zdSqKsU8a3GL8o7cSeNge2Vwe2FT3tQWpogYGQPoOMQUeIhFRF5V6/YWpbkVnCCxED2BCizJizR5EGUt34CKHbu7rrkU3I6GJ9ylOdUCLYJdbxJQgktMMvDyTvBvo+Eh59qa2wwLG7igqGnFWIgRggLUPn79Xr0VXGzHLjhBnBGc2k9kn84FLmgsZvRhXgDSujt3NA++VYx2IOXEPyGYEpctjd4DKVKZC5aqRAg5bB6YKA+gndw4r3k8y/xsNGgJiKEw1pkExuA07JgDZvXH9Wy6+JRdNJlA9oBrchlChTUq8UVW9ld+j2+dkidKrybu+PjouWIhy1EO20mX07p5jAkiKxn9cT78ZRtmIUDGIJn3IfMAY5WJzNg5nkPKhJhzjsEnWVExcYkUc87XND088uZJ9Cbw/OPnRj+bDxQvtXDpD4qC1p88fcvz76cHJhrBUCywHpjcHfJOeQ8Ui43FpRZNgB2RZsFr9vfgDX//oB7mlNUqHDVniSyJZEBe2GkmkpXOKXMe/nj14lldsP4Bep+CB72FPmUAAAAASUVORK5CYII="
+        alt="yachts"
+      />YACHT ADVENTURES</a
+    >
+    <button class="menu-toggle js-close-menu">
+      <svg class="menu-toggle-icon-x" width="24" height="24">
+        <use href="/html-css_92_-ultra-marina/assets/icons-93572e49.svg#header-x"></use>
+      </svg>
+    </button>
+  </div>
+  <ul class="mobile-menu">
+    <li class="mobile-menu-item js-close-menu">
+      <a href="#about" class="mobile-menu-link link">ABOUT</a>
+    </li>
+    <li class="mobile-menu-item js-close-menu">
+      <a href="#yachts" class="mobile-menu-link link">YACHTS</a>
+    </li>
+    <li class="mobile-menu-item js-close-menu">
+      <a href="#reviews" class="mobile-menu-link link">REVIEWS</a>
+    </li>
+  </ul>
+</div>
+
+
+    <main>
+      
+
+  <section class="hero-section section">
+    <div class="hero-container container">
+      <div class="header-section">
+      <h1 class="hero-header">Explore the High Seas with <span class="hero-header-span">Our Luxury Yacht </span> Rentals</h1>
+      <p class="hero-description">Experience the freedom and luxury of yachting on the open seas. Choose from our top-of-the-line yachts and embark on an unforgettable journey surrounded by breathtaking views and state-of-the-art amenities.</p>
+
+      <ul class="hero-button-li">
+        <li>
+          <button type="button" class="hero-button">Get Started</button>
+        </li>
+
+        <li>
+            <a href="#services" class="link hero-link">Explore</a>
+        </li>
+      </ul>
+    </div>
+
+      <div class="hero-image">
+        <div class="hero-div">
+        <ul class="list pic-list">
+          <li class="pic-li">
+            <img class="pic-list-headshot" srcset="/html-css_92_-ultra-marina/assets/pic1-8e8c9277.jpg 1x, /html-css_92_-ultra-marina/assets/pic1@2x-91303155.jpg 2x"
+                  src="/html-css_92_-ultra-marina/assets/pic1-8e8c9277.jpg"
+                    alt="young bearded man" width="56">
+            </li>
+          <li class="pic-li">
+            <img  class="pic-list-headshot" srcset="/html-css_92_-ultra-marina/assets/pic2-f6e276f1.jpg 1x, /html-css_92_-ultra-marina/assets/pic2@2x-b96e3a3f.jpg 2x" 
+                  src="/html-css_92_-ultra-marina/assets/pic2-f6e276f1.jpg"
+                  alt="young woman" width="56">
+          </li>
+          <li class="pic-li">
+            <img  class="pic-list-headshot" srcset="/html-css_92_-ultra-marina/assets/pic3-2f95ec35.jpg 1x, /html-css_92_-ultra-marina/assets/pic3@2x-22419649.jpg 2x" 
+                  src="/html-css_92_-ultra-marina/assets/pic3-2f95ec35.jpg"
+                  alt="young man" width="56">
+          </li>
+          <li>
+          </li>
+            </ul>
+            <p class="hero-subheader">Our Clients</p>
+          </div>
+          <div>
+            <ul class="list">
+              <li class="list-img-ceo">
+                <img srcset="/html-css_92_-ultra-marina/assets/img-man-b6763f50.jpg 1x, /html-css_92_-ultra-marina/assets/img-man@2x-76b4fa02.jpg 2x"
+                        src="/html-css_92_-ultra-marina/assets/img-man-b6763f50.jpg"
+                      alt="man on the yacht" width="133" class="img-ceo">
+                 </li>
+            
+                <li class="list-img-yacht">
+                <img srcset="/html-css_92_-ultra-marina/assets/img-yacht-f486cbc1.png 1x, /html-css_92_-ultra-marina/assets/img-yacht@2x-d0dd859c.png 2x"
+                      src="/html-css_92_-ultra-marina/assets/img-yacht-f486cbc1.png" 
+                      alt="luxury yacht" width="287" class="img-yacht">
+                </li> 
+              </ul>   
+            </div>
+
+            
+            <div class="adv-rent">
+            <p class="rent-value">$12M</p>
+           <p class="adv-description">Book now and make your dream yacht rental a reality</p>     
+           
+          </div>
+
+          <div class="blur"></div>
+           <div class="hero-blur"></div>
+            <div class="hero-blur-middle"></div>
+         
+      </div>
+  
+    </div>
+  </section>
+  
+
+
+
+      <section class="section about">
+  <div class="container about-container">
+    <!-- Text -->
+    <div class="about-text-container">
+      <p class="about-task-text">
+        <span class="yacht-adventures">Yacht Adventures</span> fleet is here to
+        take you on the ultimate adventure. Each yacht is hand-picked for its
+        comfort, style, and performance.
+      </p>
+      <ul class="about-desc-list list">
+        <li class="about-desc-item">
+          From spacious decks to state-of-the-art technology, our yachts are
+          designed to provide the perfect blend of luxury and functionality.
+          Take a look at our selection below and choose the yacht that matches
+          your needs and preferences.
+        </li>
+        <li class="about-desc-item">
+          No matter which yacht you choose, our experienced crew will ensure
+          that your journey is smooth and enjoyable. Book now and get ready for
+          an unforgettable adventure on the high seas.
+        </li>
+      </ul>
+    </div>
+    <!-- Images -->
+    <ul class="yachts-list">
+      <li class="yacht-list-first-pic">
+        <picture>
+          <source
+            media="(max-width: 767px)"
+            srcset="/html-css_92_-ultra-marina/assets/yaсht-1-82000b2a.png 1x, /html-css_92_-ultra-marina/assets/yacht-1-2x-93e7fbfd.png 2x"
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="/html-css_92_-ultra-marina/assets/yacht-1(1)-b7f5a6ce.png 1x, /html-css_92_-ultra-marina/assets/yacht-1(1)-2x-40680626.png 2x"
+          />
+          <source
+            media="(min-width: 1280px)"
+            srcset="/html-css_92_-ultra-marina/assets/yacht-1(2)-eca456b7.png 1x, /html-css_92_-ultra-marina/assets/yacht-1(2)-2x-05cbebdb.png 2x"
+          />
+
+          <img src="/html-css_92_-ultra-marina/assets/yaсht-1-82000b2a.png" alt="yacht top floor" />
+        </picture>
+      </li>
+      <li class="yacht-list-second-pic">
+        <picture>
+          <source
+            media="(max-width: 767px)"
+            srcset="/html-css_92_-ultra-marina/assets/yaсht-2-f61cc523.png 1x, /html-css_92_-ultra-marina/assets/yacht-2-2x-52539283.png 2x"
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="/html-css_92_-ultra-marina/assets/yacht-2(1)-9d41d5bc.png 1x, /html-css_92_-ultra-marina/assets/yacht-2(1)-2x-7c44487e.png 2x"
+          />
+          <source
+            media="(min-width: 1280px)"
+            srcset="/html-css_92_-ultra-marina/assets/yacht-2(1)-9d41d5bc.png 1x, /html-css_92_-ultra-marina/assets/yacht-2(1)-2x-7c44487e.png 2x"
+          />
+          <img src="/html-css_92_-ultra-marina/assets/yaсht-2-f61cc523.png" alt="yacht middle floor" />
+        </picture>
+      </li>
+      <li class="yacht-list-last-pic">
+        <picture>
+          <source
+            media="(max-width: 767px)"
+            srcset="/html-css_92_-ultra-marina/assets/yaсht-3-15911d8a.png 1x, /html-css_92_-ultra-marina/assets/yacht-3-2x-029170ad.png 2x"
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="/html-css_92_-ultra-marina/assets/yaсht-3-15911d8a.png 1x, /html-css_92_-ultra-marina/assets/yacht-3-2x-029170ad.png 2x"
+          />
+          <source
+            media="(min-width: 1280px)"
+            srcset="/html-css_92_-ultra-marina/assets/yaсht-3-15911d8a.png 1x, /html-css_92_-ultra-marina/assets/yacht-3-2x-029170ad.png 2x"
+          />
+          <img src="/html-css_92_-ultra-marina/assets/yaсht-3-15911d8a.png" alt="yacht from the sky" />
+        </picture>
+      </li>
+    </ul>
+  </div>
+</section>
+
+      <section class="yachts section" id="yachts">
+  <div class="container yachts-container">
+    <div class="yachts-bg-waves"></div>
+    <div class="yachts-header-container">
+      <h2 class="yachts-header">
+        Choose your dream yacht and sail away into the sunset
+      </h2>
+      <button class="yachts-btn" type="button">Yacht rental</button>
+      <div class="yacht-blur"></div>
+    </div>
+    <div class="swiper-container">
+      <ul class="yachtswiper-list card-set swiper-wrapper">
+        <li class="yachtswiper-item card-set-item swiper-slide" data-active-1>
+          <a href="" class="yachtswiper-link">
+            <img
+              class="yachtswiper-img"
+              srcset="/html-css_92_-ultra-marina/assets/yacht-1@1x-bde189f0.jpg 1x, /html-css_92_-ultra-marina/assets/yacht-1@2x-0a997b69.jpg 2x"
+              src="/html-css_92_-ultra-marina/assets/yacht-1@1x-bde189f0.jpg"
+              alt="Yacht image"
+              width="299"
+              height="251"
+            />
+            <div class="yachtswiper-description">
+              <div class="yachtswiper-title">
+                <h3 class="yachtswiper-header">Arrow</h3>
+                <p class="yachtswiper-header-class">Luxury Yachts</p>
+              </div>
+              <table class="ys-desc-table">
+                <tr>
+                  <th>LENGTH</th>
+                  <td>48m(155ft)</td>
+                </tr>
+                <tr>
+                  <th>SHIPYARD</th>
+                  <td>Admiral</td>
+                </tr>
+                <tr>
+                  <th>BUILT</th>
+                  <td>2021</td>
+                </tr>
+                <tr>
+                  <th>GUESTS</th>
+                  <td>11 in 5 cabins</td>
+                </tr>
+                <tr>
+                  <th>PRICE</th>
+                  <td>€33,500,000</td>
+                </tr>
+              </table>
+            </div>
+          </a>
+        </li>
+        <li class="yachtswiper-item card-set-item swiper-slide" data-active-2>
+          <a href="" class="yachtswiper-link">
+            <img
+              class="yachtswiper-img"
+              srcset="/html-css_92_-ultra-marina/assets/yacht-2@1x-c3780a80.jpg 1x, /html-css_92_-ultra-marina/assets/yacht-2@2x-9635600c.jpg 2x"
+              src="/html-css_92_-ultra-marina/assets/yacht-2@1x-c3780a80.jpg"
+              alt="Yacht image"
+              width="299"
+              height="251"
+            />
+            <div class="yachtswiper-description">
+              <div class="yachtswiper-title">
+                <h3 class="yachtswiper-header">BENETTI OASIS 40M...</h3>
+                <p class="yachtswiper-header-class">Luxury Yachts</p>
+              </div>
+              <table class="ys-desc-table">
+                <tr>
+                  <th>LENGTH</th>
+                  <td>41m (133ft)</td>
+                </tr>
+                <tr>
+                  <th>SHIPYARD</th>
+                  <td>Admiral</td>
+                </tr>
+                <tr>
+                  <th>BUILT</th>
+                  <td>2025</td>
+                </tr>
+                <tr>
+                  <th>GUESTS</th>
+                  <td>10 in 5 cabins</td>
+                </tr>
+                <tr>
+                  <th>PRICE</th>
+                  <td>€23,210,000</td>
+                </tr>
+              </table>
+            </div>
+          </a>
+        </li>
+        <li class="yachtswiper-item card-set-item swiper-slide" data-active-3>
+          <a href="" class="yachtswiper-link">
+            <img
+              class="yachtswiper-img"
+              srcset="/html-css_92_-ultra-marina/assets/yacht-3@1x-a6865fdd.jpg 1x, /html-css_92_-ultra-marina/assets/yacht-3@2x-c26707a6.jpg 2x"
+              src="/html-css_92_-ultra-marina/assets/yacht-3@1x-a6865fdd.jpg"
+              alt="Yacht image"
+              width="299"
+              height="251"
+            />
+            <div class="yachtswiper-description">
+              <div class="yachtswiper-title">
+                <h3 class="yachtswiper-header">BELLE ANNA</h3>
+                <p class="yachtswiper-header-class">Luxury Yachts</p>
+              </div>
+              <table class="ys-desc-table">
+                <tr>
+                  <th>LENGTH</th>
+                  <td>50m(155ft)</td>
+                </tr>
+                <tr>
+                  <th>SHIPYARD</th>
+                  <td>ISA</td>
+                </tr>
+                <tr>
+                  <th>BUILT</th>
+                  <td>2012</td>
+                </tr>
+                <tr>
+                  <th>GUESTS</th>
+                  <td>12 in 6 cabins</td>
+                </tr>
+                <tr>
+                  <th>PRICE</th>
+                  <td>€21,000,000</td>
+                </tr>
+              </table>
+            </div>
+          </a>
+        </li>
+        <li class="yachtswiper-item card-set-item swiper-slide">
+          <a href="" class="yachtswiper-link">
+            <img
+              class="yachtswiper-img"
+              srcset="/html-css_92_-ultra-marina/assets/yacht-4@1x-10080372.jpg 1x, /html-css_92_-ultra-marina/assets/yacht-4@2x-c2907e7b.jpg 2x"
+              src="/html-css_92_-ultra-marina/assets/yacht-4@1x-10080372.jpg"
+              alt="Yacht image"
+              width="299"
+              height="251"
+            />
+            <div class="yachtswiper-description">
+              <div class="yachtswiper-title">
+                <h3 class="yachtswiper-header">Ellen</h3>
+                <p class="yachtswiper-header-class">Luxury Yachts</p>
+              </div>
+              <table class="ys-desc-table">
+                <tr>
+                  <th>LENGTH</th>
+                  <td>40m (132ft)</td>
+                </tr>
+                <tr>
+                  <th>SHIPYARD</th>
+                  <td>Perini Navi</td>
+                </tr>
+                <tr>
+                  <th>BUILT</th>
+                  <td>2001 / 2016 (refitted)</td>
+                </tr>
+                <tr>
+                  <th>GUESTS</th>
+                  <td>9 in 4 cabins</td>
+                </tr>
+                <tr>
+                  <th>PRICE</th>
+                  <td>€9,300,000</td>
+                </tr>
+              </table>
+            </div>
+          </a>
+        </li>
+        <li class="yachtswiper-item card-set-item swiper-slide">
+          <a href="" class="yachtswiper-link">
+            <img
+              class="yachtswiper-img"
+              srcset="/html-css_92_-ultra-marina/assets/yacht-5@1x-b6f800f5.jpg 1x, /html-css_92_-ultra-marina/assets/yacht-5@2x-d403013f.jpg 2x"
+              src="/html-css_92_-ultra-marina/assets/yacht-5@1x-b6f800f5.jpg"
+              alt="Yacht image"
+              width="299"
+              height="251"
+            />
+            <div class="yachtswiper-description">
+              <div class="yachtswiper-title">
+                <h3 class="yachtswiper-header">Mirage 401</h3>
+                <p class="yachtswiper-header-class">Luxury Yachts</p>
+              </div>
+              <table class="ys-desc-table">
+                <tr>
+                  <th>LENGTH</th>
+                  <td>38m (125ft)</td>
+                </tr>
+                <tr>
+                  <th>SHIPYARD</th>
+                  <td>Gianetti Custom Yachts</td>
+                </tr>
+                <tr>
+                  <th>BUILT</th>
+                  <td>2024</td>
+                </tr>
+                <tr>
+                  <th>GUESTS</th>
+                  <td>10 in 5 cabins</td>
+                </tr>
+                <tr>
+                  <th>PRICE</th>
+                  <td>€13,500,000</td>
+                </tr>
+              </table>
+            </div>
+          </a>
+        </li>
+        <li class="yachtswiper-item card-set-item swiper-slide">
+          <a href="" class="yachtswiper-link">
+            <img
+              class="yachtswiper-img"
+              srcset="/html-css_92_-ultra-marina/assets/yacht-6@1x-5d403835.jpg 1x, /html-css_92_-ultra-marina/assets/yacht-6@2x-4df6a12c.jpg 2x"
+              src="/html-css_92_-ultra-marina/assets/yacht-6@1x-5d403835.jpg"
+              alt="Yacht image"
+              width="299"
+              height="251"
+            />
+            <div class="yachtswiper-description">
+              <div class="yachtswiper-title">
+                <h3 class="yachtswiper-header">KING</h3>
+                <p class="yachtswiper-header-class">Luxury Yachts</p>
+              </div>
+              <table class="ys-desc-table">
+                <tr>
+                  <th>LENGTH</th>
+                  <td>33m (109ft)</td>
+                </tr>
+                <tr>
+                  <th>SHIPYARD</th>
+                  <td>Overmarine</td>
+                </tr>
+                <tr>
+                  <th>BUILT</th>
+                  <td>2004 / 2018 (refitted)</td>
+                </tr>
+                <tr>
+                  <th>GUESTS</th>
+                  <td>9 in 4 cabins</td>
+                </tr>
+                <tr>
+                  <th>PRICE</th>
+                  <td>€1,850,000</td>
+                </tr>
+              </table>
+            </div>
+          </a>
+        </li>
+        <li class="yachtswiper-item card-set-item swiper-slide">
+          <a href="" class="yachtswiper-link">
+            <img
+              class="yachtswiper-img"
+              srcset="/html-css_92_-ultra-marina/assets/yacht-7@1x-1a19a1f2.jpg 1x, /html-css_92_-ultra-marina/assets/yacht-7@2x-b22ff7da.jpg 2x"
+              src="/html-css_92_-ultra-marina/assets/yacht-7@1x-1a19a1f2.jpg"
+              alt="Yacht image"
+              width="299"
+              height="251"
+            />
+            <div class="yachtswiper-description">
+              <div class="yachtswiper-title">
+                <h3 class="yachtswiper-header">SALT</h3>
+                <p class="yachtswiper-header-class">Luxury Yachts</p>
+              </div>
+              <table class="ys-desc-table">
+                <tr>
+                  <th>LENGTH</th>
+                  <td>32m (105ft)</td>
+                </tr>
+                <tr>
+                  <th>SHIPYARD</th>
+                  <td>SanLorenzo</td>
+                </tr>
+                <tr>
+                  <th>BUILT</th>
+                  <td>2019</td>
+                </tr>
+                <tr>
+                  <th>GUESTS</th>
+                  <td>11 in 5 cabins</td>
+                </tr>
+                <tr>
+                  <th>PRICE</th>
+                  <td>€7,800,000</td>
+                </tr>
+              </table>
+            </div>
+          </a>
+        </li>
+        <li class="yachtswiper-item card-set-item swiper-slide">
+          <a href="" class="yachtswiper-link">
+            <img
+              class="yachtswiper-img"
+              srcset="/html-css_92_-ultra-marina/assets/yacht-8@1x-b1698eda.jpg 1x, /html-css_92_-ultra-marina/assets/yacht-8@2x-ad3d90aa.jpg 2x"
+              src="/html-css_92_-ultra-marina/assets/yacht-8@1x-b1698eda.jpg"
+              alt="Yacht image"
+              width="299"
+              height="251"
+            />
+            <div class="yachtswiper-description">
+              <div class="yachtswiper-title">
+                <h3 class="yachtswiper-header">STORM</h3>
+                <p class="yachtswiper-header-class">Luxury Yachts</p>
+              </div>
+              <table class="ys-desc-table">
+                <tr>
+                  <th>LENGTH</th>
+                  <td>32m (103ft)</td>
+                </tr>
+                <tr>
+                  <th>SHIPYARD</th>
+                  <td>Overmarine</td>
+                </tr>
+                <tr>
+                  <th>BUILT</th>
+                  <td>2005 / 2022 (refitted)</td>
+                </tr>
+                <tr>
+                  <th>GUESTS</th>
+                  <td>9 in 4 cabins</td>
+                </tr>
+                <tr>
+                  <th>PRICE</th>
+                  <td>€2,900,000</td>
+                </tr>
+              </table>
+            </div>
+          </a>
+        </li>
+        <li class="yachtswiper-item card-set-item swiper-slide">
+          <a href="" class="yachtswiper-link">
+            <img
+              class="yachtswiper-img"
+              srcset="/html-css_92_-ultra-marina/assets/yacht-9@1x-18af9aa4.jpg 1x, /html-css_92_-ultra-marina/assets/yacht-9@2x-dd09d3e7.jpg 2x"
+              src="/html-css_92_-ultra-marina/assets/yacht-9@1x-18af9aa4.jpg"
+              alt="Yacht image"
+              width="299"
+              height="251"
+            />
+            <div class="yachtswiper-description">
+              <div class="yachtswiper-title">
+                <h3 class="yachtswiper-header">COLLU</h3>
+                <p class="yachtswiper-header-class">Luxury Yachts</p>
+              </div>
+              <table class="ys-desc-table">
+                <tr>
+                  <th>LENGTH</th>
+                  <td>29m (96ft)</td>
+                </tr>
+                <tr>
+                  <th>SHIPYARD</th>
+                  <td>Ferretti</td>
+                </tr>
+                <tr>
+                  <th>BUILT</th>
+                  <td>2014</td>
+                </tr>
+                <tr>
+                  <th>GUESTS</th>
+                  <td>10 in 5 cabins</td>
+                </tr>
+                <tr>
+                  <th>PRICE</th>
+                  <td>$4,300,000</td>
+                </tr>
+              </table>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <ul class="ys-btn-list">
+        <li>
+          <button class="ys-btn swiper-button-prev" type="button">
+            <svg class="ys-icon" width="18" height="8">
+              <use href="/html-css_92_-ultra-marina/assets/icons-93572e49.svg#icon-arrow-left"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button class="ys-btn swiper-button-next" type="button">
+            <svg class="ys-icon" width="18" height="8">
+              <use href="/html-css_92_-ultra-marina/assets/icons-93572e49.svg#icon-arrow-right"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+      <section class="section" id="services">
+  <div class="container">
+    <h2 class="services-title visually-hidden">SERVICES</h2>
+    <ul class="services-list services-2item">
+      <li class="services-item diving-item">
+        <picture>
+          <source
+            srcset="/html-css_92_-ultra-marina/assets/img-divingmob@1x-0b669f64.jpg 1x, /html-css_92_-ultra-marina/assets/img-divingmob@2x-2449f0e2.jpg 2x"
+            media="(max-width: 767px)"
+          />
+          <source
+            srcset="/html-css_92_-ultra-marina/assets/img-divingtable@1x-a1813625.jpg 1x, /html-css_92_-ultra-marina/assets/img-divingtable@2x-8d8b39a8.jpg 2x"
+            media="(min-width: 768px) and (max-width: 1287.8px)"
+          />
+          <source
+            srcset="/html-css_92_-ultra-marina/assets/img-diving@1x-fc094226.jpg 1x, /html-css_92_-ultra-marina/assets/img-diving@2x-aa638c39.jpg 2x"
+            media="(min-width: 1280px)"
+          />
+          <img
+            class="services-img diving"
+            src="/html-css_92_-ultra-marina/assets/img-diving@1x-fc094226.jpg"
+            alt="Diving"
+          />
+        </picture>
+        <p class="services-name">Diving</p>
+      </li>
+      <li class="services-item fishing-item">
+        <picture>
+          <source
+            srcset="/html-css_92_-ultra-marina/assets/img-fishingmob@1x-c7719364.jpg 1x, /html-css_92_-ultra-marina/assets/img-fishingmob@2x-64deadba.jpg 2x"
+            media="(max-width: 767px)"
+          />
+          <source
+            srcset="/html-css_92_-ultra-marina/assets/img-fishingtable@1x-111f9c97.jpg 1x, /html-css_92_-ultra-marina/assets/img-fishingtable@2x-79bdc27c.jpg 2x"
+            media="(min-width: 768px) and (max-width: 1287.8px)"
+          />
+          <source
+            srcset="/html-css_92_-ultra-marina/assets/img-fishing@1x-d698aeeb.jpg 1x, /html-css_92_-ultra-marina/assets/img-fishing@2x-b70e5b43.jpg 2x"
+            media="(min-width: 1280px)"
+          />
+          <img
+            class="services-img fishing"
+            src="/html-css_92_-ultra-marina/assets/img-fishing@1x-d698aeeb.jpg"
+            alt="Fishing"
+          />
+        </picture>
+        <p class="services-name services-name-fish">Fishing</p>
+      </li>
+      <li class="services-item sunbating-item">
+        <picture>
+          <source
+            srcset="/html-css_92_-ultra-marina/assets/img-sunbathingmob@1x-95449eb9.jpg 1x, /html-css_92_-ultra-marina/assets/img-sunbathingmob@2x-92b7f672.jpg 2x"
+            media="(max-width: 767px)"
+          />
+          <source
+            srcset="/html-css_92_-ultra-marina/assets/img-sunbathingtable@1x-70093e41.jpg 1x, /html-css_92_-ultra-marina/assets/img-sunbathingtable@2x-1987c643.jpg 2x"
+            media="(min-width: 768px) and (max-width: 1287.8px)"
+          />
+          <source
+            srcset="/html-css_92_-ultra-marina/assets/img-sunbathing@1x-d0318d61.jpg 1x, /html-css_92_-ultra-marina/assets/img-sunbathing@2x-96a01e4b.jpg 2x"
+            media="(min-width: 1280px)"
+          />
+          <img
+            class="services-img sunbathing"
+            src="/html-css_92_-ultra-marina/assets/img-sunbathing@1x-d0318d61.jpg"
+            alt="Sunbathing"
+          />
+        </picture>
+        <p class="services-name services-name-sun">Sunbating</p>
+      </li>
+    </ul>
+  </div>
+  <div id="services-circle"></div>
+</section>
+
+      <section class="rent section">
+  <div class="container rent-container">
+    <div class="rent-container-div">
+      <h2 class="rent-title">Rent a yacht now</h2>
+      <picture>
+        <source
+          srcset="/html-css_92_-ultra-marina/assets/imgdekstop1x-313170e6.png 1x, /html-css_92_-ultra-marina/assets/imgdekstop2x-feb8c8df.png 2x"
+          media="(min-width: 1280px)"
+        />
+        <source
+          srcset="/html-css_92_-ultra-marina/assets/imgtab1x-072fba2f.png 1x, /html-css_92_-ultra-marina/assets/imgtab2x-3f40943a.png 2x"
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="/html-css_92_-ultra-marina/assets/imgmob1x-91db7d33.png 1x, /html-css_92_-ultra-marina/assets/imgmob2x-1733fec3.png 2x"
+          media="(max-width: 767px)"
+        />
+
+        <img
+          src="/html-css_92_-ultra-marina/assets/imgmob1x-91db7d33.png"
+          alt="Yaht"
+        />
+      </picture>
+    </div>
+
+    <div class="rent-container-form">
+      <form class="rent-form">
+        <!-- Name -->
+        <label for="name" class="rent-label rent-name">Full Name</label>
+        <div class="rent-input-div">
+          <input type="text" id="name" name="user-name" class="rent-input" />
+        </div>
+        <!-- Email -->
+        <label for="mail" class="rent-label">Email</label>
+        <div class="rent-input-div">
+          <input type="email" id="mail" name="user-email" class="rent-input" />
+        </div>
+        <!-- Phone -->
+        <label for="phone" class="rent-label">Phone number</label>
+        <div class="rent-input-div">
+          <input type="tel" id="phone" name="user-phone" class="rent-input" />
+        </div>
+        <!-- comment -->
+        <label for="user-comment" class="rent-label">Comment</label>
+        <div class="rent-comment">
+          <textarea
+            name="user-comment"
+            id="user-comment"
+            cols="30"
+            rows="10"
+            class="rent-textarea"
+          ></textarea>
+        </div>
+        <button type="button" class="rent-button" data-modal-open>
+          Send
+          <svg width="18px" height="8.66px">
+            <use href="/html-css_92_-ultra-marina/assets/icons-93572e49.svg#rent-arrow"></use>
+          </svg>
+        </button>
+      </form>
+    </div>
+    <!-- <div class="rent-div-blur"></div> -->
+  </div>
+</section>
+
+<!-- Modal-rent-window -->
+<div class="backdrop is-hidden" data-modal>
+  <div class="rent-modal">
+    <button type="button" class="rent-modal-button" data-modal-close>
+      <svg width="20px" height="20px">
+        <use href="/html-css_92_-ultra-marina/assets/icons-93572e49.svg#close-x"></use>
+      </svg>
+    </button>
+    <img
+      srcset="/html-css_92_-ultra-marina/assets/modalmob1x-5c0e6adf.png 1x, /html-css_92_-ultra-marina/assets/modalmob2x-ccbba3cf.png 2x"
+      src="/html-css_92_-ultra-marina/assets/modalmob1x-5c0e6adf.png"
+      alt="rent-yacht-modal"
+      width="287"
+      height="149"
+      class="rent-img-modal"
+    />
+    <h2 class="rent-modal-title">Thank you</h2>
+    <p class="rent-modal-page">
+      Thank you for choosing Yacht Adventures, your booking details have been
+      received and our team will be in touch shortly to confirm your reservation
+      and provide any additional information or assistance you may need.
+    </p>
+    <div class="rent-blur"></div>
+  </div>
+</div>
+
+      <section class="section reviews" id="reviews">
+  <div class="container review-container">
+    <div class="pre-reviews-div">
+      <h3 class="pre-reviews-main">
+        <span class="span-pre-reviews-text"> Yacht Adventures </span> take pride
+        in providing the best possible service and experience to our customers
+      </h3>
+      <p class="pre-reviews-paragraph">
+        Our customers have enjoyed unforgettable moments on our yachts. Don't
+        just take our word for it - read on to find out what they have to say
+        about their journey with us.
+      </p>
+    </div>
+    <ul class="list reviews-list">
+      <li class="review" id="review-1">
+        <img
+          src="/html-css_92_-ultra-marina/assets/john-wax-bff67264.png"
+          srcset="/html-css_92_-ultra-marina/assets/john-wax-bff67264.png 1x, /html-css_92_-ultra-marina/assets/john-wax@2x-f806f578.png 2x"
+          alt="customer-review"
+          width="56"
+          height="56"
+          class="customer-image"
+        />
+        <p class="review-customer-name">John Wax</p>
+        <p class="customer-review">
+          I rented the Lagoon 620 with my family for a week-long vacation and it
+          was the best decision ever. The yacht was spacious, comfortable, and
+          luxurious, and the crew took care of everything.
+        </p>
+      </li>
+      <li class="review" id="review-2">
+        <img
+          src="/html-css_92_-ultra-marina/assets/victoria-r-28e8b9bb.png"
+          srcset="/html-css_92_-ultra-marina/assets/victoria-r-28e8b9bb.png 1x, /html-css_92_-ultra-marina/assets/victoria-r@2x-47f1d301.png 2x"
+          alt="customer-review"
+          width="56"
+          height="56"
+          class="customer-image"
+        />
+        <p class="review-customer-name">Victoria Romashenko</p>
+        <p class="customer-review">
+          The Sunseeker Manhattan 66 was the perfect choice for our romantic
+          getaway. The yacht was beautifully designed, with all the amenities we
+          needed, and the crew was attentive and friendly.
+        </p>
+      </li>
+      <li class="review" id="review-3">
+        <img
+          src="/html-css_92_-ultra-marina/assets/ihor-t-88770ba3.png"
+          srcset="/html-css_92_-ultra-marina/assets/ihor-t-88770ba3.png 1x, /html-css_92_-ultra-marina/assets/ihor-t@2x-c76c1414.png 2x"
+          alt="customer-review"
+          width="56"
+          height="56"
+          class="customer-image"
+        />
+        <p class="review-customer-name">Ihor Trachuk</p>
+        <p class="customer-review">
+          The Azimut 80 was the most luxurious yacht I've ever been on. The
+          cabins were spacious and elegant, and the outdoor areas were perfect
+          for relaxing and entertaining. Worth every penny!
+        </p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="footer">
+  <!-- логотип футера -->
+  <div class="container">
+  <div class="footer-flex">
+    <div class="footer-logo">
+      <img class="footer-logo-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKOSURBVHgBpVRLchMxEO3WpEhSRZWdE2RyAsyWBbYXLGBDcgCwcwLMBbA5QbiBd2xdLKgUmCDsgMMxfAOGnSuR1HS3xmMnDvEnqrGl0UivX79+EsAG7bO1lVXWGdigEUKjZ2152bqNwIFgL0no0bJla4OfDm0zyCBgZ9natcC//Bq0DZp9g6IMVJdJszJ4/9zWWI6OCwEDAZJMhtC6N7i1NsXEdIFINxSbEKv3BvfbpsNI+8UEy8JN/mu9fr+2MfjZz2HTIDYiKGonsoA+CB7xcCPwKAe8k7EyvdY0AkuPje5/Cns3850t0fmAGVIegHcYyt2iARGw9NC5ylrg9uK8zdSqKsU8a3GL8o7cSeNge2Vwe2FT3tQWpogYGQPoOMQUeIhFRF5V6/YWpbkVnCCxED2BCizJizR5EGUt34CKHbu7rrkU3I6GJ9ylOdUCLYJdbxJQgktMMvDyTvBvo+Eh59qa2wwLG7igqGnFWIgRggLUPn79Xr0VXGzHLjhBnBGc2k9kn84FLmgsZvRhXgDSujt3NA++VYx2IOXEPyGYEpctjd4DKVKZC5aqRAg5bB6YKA+gndw4r3k8y/xsNGgJiKEw1pkExuA07JgDZvXH9Wy6+JRdNJlA9oBrchlChTUq8UVW9ld+j2+dkidKrybu+PjouWIhy1EO20mX07p5jAkiKxn9cT78ZRtmIUDGIJn3IfMAY5WJzNg5nkPKhJhzjsEnWVExcYkUc87XND088uZJ9Cbw/OPnRj+bDxQvtXDpD4qC1p88fcvz76cHJhrBUCywHpjcHfJOeQ8Ui43FpRZNgB2RZsFr9vfgDX//oB7mlNUqHDVniSyJZEBe2GkmkpXOKXMe/nj14lldsP4Bep+CB72FPmUAAAAASUVORK5CYII=">
+      <a class="footer-logo-link link" href="./index.html">YACHT ADVENTURES</a>
+    </div>
+
+    <!-- навігація футера -->
+    <div class="footer-nav">
+      <ul class="footer-list list">
+        <li class="footer-item">
+          <a class="footer-link link" href="#about">ABOUT</a>
+        </li>
+        <li class="footer-item">
+          <a class="footer-link link" href="#yachts">YACHTS</a>
+        </li>
+        <li class="footer-item">
+          <a class="footer-link link" href="#reviews">REVIEWS</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- посилання футера -->
+    <div class="footer-social-networks">
+      <p class="footer-sn-text">WE IN SOCIAL</p>
+      <ul class="footer-sn-list list">
+        <li class="footer-sn-item">
+          <a class="footer-sn-link link" href="" target="_blank">
+            <svg class="footer-sn-icon footer-facebook">
+              <use href="/html-css_92_-ultra-marina/assets/icons-93572e49.svg#footer-facebook"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="footer-sn-item">
+          <a class="footer-sn-link link" href="" target="_blank">
+            <svg class="footer-sn-icon footer-instagram">
+              <use href="/html-css_92_-ultra-marina/assets/icons-93572e49.svg#footer-instagram"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="footer-sn-item">
+          <a class="footer-sn-link link" href="" target="_blank">
+            <svg class="footer-sn-icon footer-youtube">
+              <use href="/html-css_92_-ultra-marina/assets/icons-93572e49.svg#footer-youtube"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- політика приватності футера -->
+     <div class="footer-pp"> 
+          <p class="footer-pp-description">2023. Yacht Adventures</p>
+          <a class="footer-pp-link" href="" target="_blank">Privacy Police</a>
+     </div> 
+  </div>
+  </div>
+</footer>
+
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
+      integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
+      crossorigin="anonymous"
+    ></script>
+    
+  </body>
+</html>
